@@ -1,0 +1,163 @@
+body {
+    font-family: "IBM Plex Sans Thai", sans-serif;
+    background: #fefcf1de;
+    margin: 0;
+}
+
+#packages {
+    max-width: 1200px;
+    margin: 40px auto;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    padding: 32px 24px;
+}
+
+h2 {
+    text-align: center;
+    color: #1976d2;
+    margin-bottom: 32px;
+}
+
+.seasons {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+}
+
+.seasons button {
+    background: linear-gradient(90deg, #59a2d3,#2980b9 );
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    padding: 16px 32px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: background 0.2s, transform 0.2s;
+}
+
+.seasons button:hover,
+.seasons button.active {
+    background: linear-gradient(90deg, #ff4e50, #f9d423);
+    transform: scale(1.05);
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    justify-content: center;
+    min-height: 120px;
+}
+
+.card {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    width: 300px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+}
+
+.card-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 18px 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-content h3 {
+    margin: 0 0 8px 0;
+    color: #1976d2;
+}
+
+.card-content p {
+    margin: 0 0 6px 0;
+    color: #333;
+}
+
+.price {
+    font-weight: bold;
+    color: #d84315;
+}
+
+.btn {
+    margin-top: 12px;
+    padding: 8px 18px;
+    background: #c49a5c;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn:hover {
+    background: #a67c3c;
+}
+
+.menu-section {
+    text-align: center;
+    margin: 24px 0;
+}
+
+.menu-section a {
+    text-decoration: none;
+    color: #1976d2;
+    font-weight: bold;
+}
+
+#backToTop {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #1976d2;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+    display: none;
+}
+
+
+
+@media (max-width: 900px) {
+    .cards {
+        gap: 16px;
+    }
+
+    .card {
+        width: 90vw;
+        max-width: 350px;
+    }
+}
+
+@media (max-width: 600px) {
+    #packages {
+        padding: 16px 6px;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+    }
+
+    .seasons button {
+        padding: 10px 16px;
+        font-size: 1rem;
+    }
+}

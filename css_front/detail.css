@@ -1,0 +1,166 @@
+body {
+    font-family: 'IBM Plex Sans Thai', sans-serif;
+}
+
+.programs {
+    max-width: 900px;
+    margin: 30px auto;
+    text-align: center;
+}
+
+.programs-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.programs-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.programs-card h3 {
+    margin-top: 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+}
+
+table td {
+    padding: 10px;
+    text-align: right;
+    border-bottom: 1px solid #eee;
+}
+
+table td:first-child {
+    text-align: left;
+}
+
+.note {
+    font-size: 14px;
+    color: #666;
+    margin-top: 10px;
+}
+
+
+/* Price Section */
+.price {
+    text-align: center;
+    margin: 50px auto;
+    width: 90%;
+    max-width: 800px;
+
+}
+
+
+.price h2 {
+    color: #000000;
+    margin-bottom: 20px;
+}
+
+.price-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+.price-table th,
+.price-table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+}
+
+.price-table th {
+    background: #f8f9fa;
+    color: #333;
+}
+
+.price-table tr:nth-child(even) {
+    background: #fdfdfd;
+}
+
+.btn {
+    background: #0078ff;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+}
+
+/* Back to Top */
+#backToTop {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 15px;
+    border: none;
+    background: #59a2d3;
+    color: white;
+    cursor: pointer;
+    display: none;
+    border-radius: 5px;
+}
+
+.floating-btn {
+    position: fixed;
+    right: 20px;
+    z-index: 9999;
+    border-radius: 5px;
+}
+
+.floating-btn img {
+    width: 40px;
+    height: 40px;
+}
+
+.floating-btn:hover {
+    transform: scale(1.1);
+}
+
+
+.line {
+    bottom: 60px;
+    /* background-color: #06C755; */
+}
+
+/* All Packages */
+.menu-section {
+    text-align: center;
+    margin: 10px 0;
+}
+
+.menu-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-section li {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.menu-section a {
+    display: inline-block;
+    text-decoration: none;
+    background: #59a2d3;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.menu-section a:hover {
+    background: #0056b3;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}

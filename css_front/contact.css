@@ -1,0 +1,220 @@
+/* พื้นฐาน */
+:root {
+    --brand: #59a2d3;
+    /* น้ำเงินเข้มสำหรับหัวข้อ */
+    --brand-2: #59a2d3;
+    /* น้ำเงินปุ่ม */
+    --ink: #1a1a1a;
+    --muted: #667085;
+    --line: #e6eaf1;
+    --panel: #f4f7fc;
+    /* สีพื้นฟอร์ม */
+    --radius: 12px;
+}
+
+* {
+    box-sizing: border-box
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background: linear-gradient(90deg, #d39659, #b98729);
+    /* background: linear-gradient(90deg, #59a2d3, #2980b9); */
+    color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.navbar a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.navbar a:hover {
+    color: #ffeaa7;
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+html,
+body {
+    height: 100%
+}
+
+body {
+    margin: 0;
+    font-family: 'Nunito', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    color: var(--ink);
+    background: #fff;
+}
+
+/* เลย์เอาต์หลัก */
+.contact-section {
+    max-width: 1200px;
+    margin: auto;
+    padding: 48px 20px;
+    display: grid;
+    grid-template-columns: 1fr 1.35fr;
+    /* ซ้าย : ขวา */
+    gap: 28px;
+}
+
+@media (max-width: 980px) {
+    .contact-section {
+        grid-template-columns: 1fr;
+        padding: 32px 16px;
+    }
+}
+
+/* ซ้าย: ข้อมูลติดต่อ */
+.contact-info {
+    padding: 6px 6px 6px 0
+}
+
+.info-title {
+    color: var(--brand);
+    margin: 22px 0 10px;
+    font-weight: 800;
+    letter-spacing: .2px;
+}
+
+.info-title:first-child {
+    margin-top: 0
+}
+
+.info-strong {
+    font-weight: 700
+}
+
+.info-block {
+    margin: 6px 0 14px
+}
+
+.info-list {
+    margin: 0 0 14px 18px;
+    padding: 0;
+}
+
+.info-list li {
+    margin: 6px 0
+}
+
+.contact-info a {
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+}
+
+.contact-info a:hover {
+    border-color: var(--ink)
+}
+
+/* ขวา: กล่องฟอร์ม */
+.contact-form {
+    background: var(--panel);
+    border-radius: var(--radius);
+    padding: 32px 28px 26px;
+    position: relative;
+}
+
+.scribble {
+    margin: 0 0 6px;
+    font-size: 14px;
+    color: var(--muted);
+}
+
+.form-heading {
+    margin: 0 0 10px;
+    font-size: 40px;
+    line-height: 1.15;
+    letter-spacing: .3px;
+    color: var(--brand);
+}
+
+.form-sub {
+    margin: 0 0 22px;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+/* ฟอร์มอินพุต */
+form input,
+form textarea {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    font-size: 16px;
+    background: #fff;
+    outline: none;
+    transition: border-color .15s ease, box-shadow .15s ease;
+    margin-bottom: 14px;
+}
+
+form input::placeholder,
+form textarea::placeholder {
+    color: #8a94a6
+}
+
+form input:focus,
+form textarea:focus {
+    border-color: var(--brand-2);
+    box-shadow: 0 0 0 4px rgba(10, 108, 198, .08);
+}
+
+/* ปุ่ม */
+.btn-primary {
+    display: inline-block;
+    appearance: none;
+    border: 0;
+    border-radius: 10px;
+    padding: 13px 22px;
+    font-weight: 700;
+    cursor: pointer;
+    background: var(--brand-2);
+    color: #fff;
+    transition: filter .15s ease, transform .02s ease;
+}
+
+.btn-primary:hover {
+    filter: brightness(0.95)
+}
+
+.btn-primary:active {
+    transform: translateY(1px)
+}
+
+/* หมายเหตุใต้ฟอร์ม */
+.note {
+    margin-top: 14px;
+    font-size: 12px;
+    color: #8b93a6;
+}
+
+/* การช่วยการเข้าถึง */
+.visually-hidden {
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+    white-space: nowrap;
+}

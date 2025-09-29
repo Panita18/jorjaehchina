@@ -1,0 +1,103 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f8f8f8;
+    color: #333;
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+    background: #2980b9;
+    color: #fff;
+}
+
+.gallery {
+    padding: 30px;
+    background: #fff;
+    margin: 20px auto;
+    max-width: 1200px;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.gallery h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    color: #2ec4b6;
+}
+
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+.card {
+    overflow: hidden;
+    border-radius: 10px;
+    background: #fafafa;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card p {
+    padding: 10px;
+    margin: 0;
+    font-weight: bold;
+    color: #444;
+}
+
+footer {
+    text-align: center;
+    padding: 15px;
+    background: #2ec4b6;
+    color: white;
+    margin-top: 20px;
+}
+
+.menu-section {
+    text-align: center;
+    margin: 10px 0;
+}
+
+.menu-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-section li {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.menu-section a {
+    display: inline-block;
+    text-decoration: none;
+    background: #59a2d3;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.menu-section a:hover {
+    background: #0056b3;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}

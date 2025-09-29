@@ -1,0 +1,626 @@
+/* ปุ่มรายละเอียด */
+:root{
+  --btn-bg: #0b74de;         /* พื้นหลังปกติ */
+  --btn-bg-2: #075db3;       /* พื้นหลังเมื่อ active/pressed */
+  --btn-text: #ffffff;       /* สีข้อความ */
+  --btn-radius: 10px;        /* มุมปุ่ม */
+  --btn-padding-y: 10px;
+  --btn-padding-x: 16px;
+  --btn-font-size: 15px;
+  --btn-shadow: 0 6px 18px rgba(11,116,222,0.18);
+  --btn-transition: 180ms cubic-bezier(.2,.9,.3,1);
+}
+
+/* พื้นฐาน */
+.btn-detail{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  background: linear-gradient(180deg, var(--btn-bg) 0%, #0670c7 100%);
+  color: var(--btn-text);
+  padding: var(--btn-padding-y) var(--btn-padding-x);
+  font-size: var(--btn-font-size);
+  border-radius: var(--btn-radius);
+  box-shadow: var(--btn-shadow);
+  border: none;
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform var(--btn-transition), box-shadow var(--btn-transition), background-color var(--btn-transition), opacity var(--btn-transition);
+  will-change: transform, box-shadow;
+}
+
+/* ไอคอนก่อนข้อความ (ใช้เป็น SVG inline via data URI หรือ glyph) */
+.btn-detail::before{
+  content: "";
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="%23ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h4"/><polyline points="17 8 21 8 21 12"/></svg>');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 18px 18px;
+  flex-shrink: 0;
+  transform: translateY(0);
+  transition: transform var(--btn-transition);
+}
+
+/* Hover / focus / active */
+.btn-detail:hover,
+.btn-detail:focus{
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(11,116,222,0.18);
+  text-decoration: none;
+  outline: none;
+}
+
+.btn-detail:active{
+  transform: translateY(-1px) scale(0.995);
+  background: var(--btn-bg-2);
+  box-shadow: 0 6px 12px rgba(7,93,179,0.18);
+}
+
+/* Keyboard focus visible (accessibility) */
+.btn-detail:focus-visible{
+  box-shadow: 0 0 0 4px rgba(11,116,222,0.18), var(--btn-shadow);
+  outline: none;
+}
+
+/* Small / large variants (ใช้ class เพิ่ม: .sm .lg) */
+.btn-detail.sm{
+  padding: 6px 10px;
+  font-size: 13px;
+  border-radius: 8px;
+}
+
+.btn-detail.lg{
+  padding: 14px 20px;
+  font-size: 17px;
+  border-radius: 12px;
+  gap: 10px;
+}
+
+/* Disabled state (ถ้าต้องการทำให้ไม่สามารถคลิกได้) */
+.btn-detail[aria-disabled="true"],
+.btn-detail.disabled{
+  pointer-events: none;
+  opacity: 0.55;
+  transform: none;
+  box-shadow: none;
+}
+
+/* ปรับให้ยืด/เต็มความกว้าง (ใช้ class .full) */
+.btn-detail.full{
+  display: inline-flex; /* เปลี่ยนเป็น flex-block ถ้าต้องการเต็มบรรทัด */
+  width: 100%;
+  justify-content: center;
+}
+
+/* การรองรับบนหน้าจอเล็ก */
+@media (max-width: 420px){
+  :root{ --btn-font-size: 14px; --btn-padding-x: 12px; }
+  .btn-detail::before{ width: 16px; height: 16px; background-size: 16px 16px; }
+}
+
+/* ตัวอย่างการเปลี่ยน theme แบบง่าย (outline variant) */
+.btn-detail.outline{
+  background: transparent;
+  color: var(--btn-bg);
+  border: 2px solid var(--btn-bg);
+  box-shadow: none;
+}
+.btn-detail.outline::before{
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="%230b74de" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h4"/><polyline points="17 8 21 8 21 12"/></svg>');
+}
+/* จบปุ่มรายละเอียด */
+
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    line-height: 1.3;
+    color: #333;
+    background: #fefcf1de;
+}
+
+/* Hero */
+#hero {
+    /* background: url('../frontend/img/IMG_0809.WEBP') center/cover no-repeat; */
+    background: url('../frontend/img/IMG_0809.jpg') center/cover no-repeat;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+
+#hero input {
+    padding: 10px;
+    margin-top: 20px;
+    width: 250px;
+}
+
+/* Sections */
+section {
+    padding: 60px 30px;
+    text-align: center;
+}
+
+/* mai */
+
+#packages {
+    padding: 50px;
+    text-align: center;
+}
+
+.cards {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+}
+
+.card-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 15px;
+    text-align: left;
+}
+
+.card-content h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #59a2d3;
+}
+
+.card-content p {
+    font-size: 14px;
+    margin: 4px 0;
+    color: #444;
+}
+
+.price {
+    margin: 10px 0;
+    font-size: 14px;
+    color: #333;
+}
+
+.price span {
+    font-weight: bold;
+    color: #a60a60;
+}
+
+.btn {
+    /* background: #007bff; */
+    background: #59a2d3;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s ease;
+}
+
+.btn:hover {
+    background: #0056b3;
+}
+
+/* All Packages */
+.menu-section {
+    text-align: center;
+    margin: 10px 0;
+}
+
+.menu-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-section li {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.menu-section a {
+    display: inline-block;
+    text-decoration: none;
+    background: #59a2d3;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.menu-section a:hover {
+    background: #0056b3;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Season */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.destination {
+    background: #e67e22;
+    padding: 30px;
+    color: white;
+    border-radius: 10px;
+}
+
+/* mai */
+/* #season {
+    text-align: center;
+    padding: 20px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.season {
+    background: #f4f4f4;
+    padding: 40px 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+.season:hover {
+    background: #e6f7ff;
+    transform: translateY(-5px);
+} */
+
+
+
+/* Reviews */
+.review-slider {
+    max-width: 600px;
+    margin: auto;
+    position: relative;
+}
+
+.review {
+    display: none;
+    font-size: 18px;
+    font-style: italic;
+}
+
+.review.active {
+    display: block;
+}
+
+/* Gallery */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.gallery-grid img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+
+/* ////// */
+
+.destinations {
+    text-align: center;
+    padding: 60px 20px;
+    background: #fff;
+}
+
+.section-header p.check-all {
+    color: #1a73e8;
+    font-style: italic;
+    margin-bottom: 5px;
+}
+
+.section-header h2 {
+    font-weight: 700;
+    color: #1a73e8;
+    margin-bottom: 40px;
+}
+
+.destinations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+    justify-items: center;
+}
+
+.destination-card {
+    width: 180px;
+    height: 220px;
+    border-radius: 20px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+}
+
+.destination-card:hover {
+    transform: translateY(-8px);
+}
+
+.destination-card span {
+    color: #fff;
+    font-weight: 600;
+    font-size: 1rem;
+    /* background: rgba(0, 0, 0, 0.473); */
+    padding: 0 auto;
+    border-radius: 8px;
+    margin-bottom: 12px;
+}
+
+
+/* Contact */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 400px;
+    margin: auto;
+}
+
+input,
+textarea,
+button {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    background: #59a2d3;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+/* Footer */
+footer {
+    background: #2c3e50;
+    color: white;
+    padding: 20px;
+}
+
+/* Back to Top */
+#backToTop {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 15px;
+    border: none;
+    background: #e74c3c;
+    color: white;
+    cursor: pointer;
+    display: none;
+    border-radius: 5px;
+}
+
+.floating-btn {
+    position: fixed;
+    right: 20px;
+    z-index: 9999;
+    border-radius: 5px;
+}
+
+.floating-btn img {
+    width: 40px;
+    height: 40px;
+}
+
+.floating-btn:hover {
+    transform: scale(1.1);
+}
+
+/* ตำแหน่งปุ่มแต่ละอัน */
+
+.line {
+    bottom: 60px;
+    /* background-color: #06C755; */
+}
+
+
+
+/* mai */
+body {
+    font-family: "IBM Plex Sans Thai", sans-serif;
+    /* background: #f4f7fb; */
+    margin: 0;
+}
+
+
+h2 {
+    text-align: center;
+    color: #1976d2;
+    margin-bottom: 32px;
+}
+
+.seasons {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+}
+
+.seasons button {
+    background: linear-gradient(90deg, #59a2d3, #2980b9);
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    padding: 16px 32px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: background 0.2s, transform 0.2s;
+}
+
+.seasons button:hover,
+.seasons button.active {
+    background: linear-gradient(90deg, #ff4e50, #f9d423);
+    transform: scale(1.05);
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    justify-content: center;
+    min-height: 120px;
+}
+
+.card {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    width: 300px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+}
+
+.card-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 18px 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-content h3 {
+    margin: 0 0 8px 0;
+    color: #1976d2;
+}
+
+.card-content p {
+    margin: 0 0 6px 0;
+    color: #333;
+}
+
+.price {
+    font-weight: bold;
+    color: #d84315;
+}
+
+/* Gallery auto layout */
+#gallery {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+#gallery h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 15px;
+}
+.gallery-card {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+}
+.gallery-card:hover {
+    transform: scale(1.05);
+}
+.gallery-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+/* สามขีด */
+header.menu nav ul {
+    display: flex;
+    gap: 15px;
+    list-style: none;
+}
+
+
+
+html {
+  scroll-behavior: smooth;
+}
+.menu-toggle {
+    display: block;       /* ให้มันแสดง */
+    font-size: 30px;      /* ขยายขนาด */
+    cursor: pointer;      /* ให้เป็นรูปมือเวลา hover */
+    color: #333;          /* เปลี่ยนสีให้อ่านง่าย */
+    z-index: 999;         /* กันโดน element อื่นบัง */
+}
+
+
+
+/* --- มือถือ --- */
+@media (max-width: 768px) {
+    header.menu nav ul {
+        display: none;
+        flex-direction: column;
+        background: #333;
+        padding: 10px;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        border-radius: 8px;
+    }
+    header.menu nav ul.active {
+        display: flex;
+    }
+    .menu-toggle {
+        display: block;
+    }
+}

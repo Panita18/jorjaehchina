@@ -1,0 +1,192 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    line-height: 1.3;
+    color: #333;
+    background: #fefcf1de;
+}
+
+
+/* Hero Section */
+.hero {
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+
+.hero h1 {
+    background: rgba(0, 0, 0, 0.4);
+    padding: 15px 25px;
+    border-radius: 8px;
+    font-size: 2.5rem;
+}
+
+/* Sections */
+section {
+    padding: 60px 30px;
+    text-align: center;
+}
+
+/* .cards {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.card {
+    background: #f1f1f1;
+    padding: 20px;
+    border-radius: 10px;
+    flex: 1;
+} */
+/* mai */
+
+#packages {
+    padding: 50px;
+    text-align: center;
+}
+
+.cards {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+}
+
+.card-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 15px;
+    text-align: left;
+}
+
+.card-content h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #59a2d3;
+}
+
+.card-content p {
+    font-size: 14px;
+    margin: 4px 0;
+    color: #444;
+}
+
+.price {
+    margin: 10px 0;
+    font-size: 14px;
+    color: #333;
+}
+
+.price span {
+    font-weight: bold;
+    color: #a60a60;
+}
+
+.btn {
+    background: #59a2d3;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s ease;
+}
+
+.btn:hover {
+    background: #0056b3;
+}
+
+/* All Packages */
+.menu-section {
+    text-align: center;
+    margin: 10px 0;
+}
+
+.menu-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-section li {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.menu-section a {
+    display: inline-block;
+    text-decoration: none;
+    background: #59a2d3;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.menu-section a:hover {
+    background: #0056b3;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Back to Top */
+#backToTop {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 15px;
+    border: none;
+    background: #e74c3c;
+    color: white;
+    cursor: pointer;
+    display: none;
+    border-radius: 5px;
+}
+
+.floating-btn {
+    position: fixed;
+    right: 20px;
+    z-index: 9999;
+    border-radius: 5px;
+}
+
+.floating-btn img {
+    width: 40px;
+    height: 40px;
+}
+
+.floating-btn:hover {
+    transform: scale(1.1);
+}
+
+/* ตำแหน่งปุ่มแต่ละอัน */
+
+.line {
+    bottom: 60px;
+    /* background-color: #06C755; */
+}
